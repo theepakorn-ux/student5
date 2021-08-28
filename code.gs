@@ -16,7 +16,7 @@ function getUrl() {
 
 function uploadFiles(form) {
   try {
-    var folderDes = DriveApp.getFolderById('1Xhbh2jQMX_VSQZ8f52H9t8BJHlM5ueun')
+    var folderDes = DriveApp.getFolderById('xxx')       // ระบุ folder ID ที่ต้องการเก็บไฟล์
     var subFolder = form.myLecturer
     var folder, folders = DriveApp.getFoldersByName(subFolder);
 
@@ -25,7 +25,7 @@ function uploadFiles(form) {
     } else {
       folder = folderDes.createFolder(subFolder);
     }
-    var home = "https://script.google.com/macros/s/AKfycbxddpLioVlYU1cxQG65r2Feex0GS9wcMdqeMltsL8qg_wmolscR/exec";
+    var home = "xxx";    // ระบุ Web App URL
         
     var file = folder.createFile(form.myFile);
         file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.COMMENT);
@@ -38,7 +38,7 @@ function uploadFiles(form) {
     var telephone = form.myTelephone
     
     // ** changeUrl for spreadsheet **
-    var ss = SpreadsheetApp.openById("1SVHsz6prrdZafyi3lmlfBdgjc6nGmFQSzpWt-43j_wc");
+    var ss = SpreadsheetApp.openById("xxx");  // ระบุ Spreadsheet ID
     var sh = ss.getSheetByName('sheet1')
     ss.appendRow([new Date(), lecturer, leader, projectTitle, numGroup, email, telephone, url])
     return  "ข้อมูลของ.." + leader + " ทำโปรเจ็คเรื่อง " + projectTitle+ " ได้ถูกอัพโหลดเข้าระบบเป็นที่เรียบร้อยแล้ว ขอบคุณครับ  <p><p><a href ='"+url+"' ><button>คลิกดูงานที่ส่ง</button></a> <p><a href ='"+home+"' ><button>กลับหน้าหลัก</button></a>"   
